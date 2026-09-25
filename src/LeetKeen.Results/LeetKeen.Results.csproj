@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<Authors>LeetKeen</Authors>
+		<Version>0.6.6</Version>
+		<Copyright>© 2025 LeetKeen</Copyright>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<AnalysisLevel>latest-all</AnalysisLevel>
+		<!-- CA1000: static members on generic types — intentional factory pattern on Result<T> -->
+		<!-- CA1716: type/param named 'Error'/'error' — intentional domain name, renaming is breaking -->
+		<NoWarn>CA1000;CA1716</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="LeetKeen.Results.UnitTests" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="docs\HowToUse.md" Pack="true" PackagePath="docs\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="LeetKeen.Analyzers" Version="0.0.0.1">
+	    <PrivateAssets>all</PrivateAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	</ItemGroup>
+</Project>
